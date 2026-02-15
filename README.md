@@ -7,7 +7,7 @@
 ![AES](https://img.shields.io/badge/AES-256--GCM-red?style=for-the-badge&logo=keepassxc)
 ![Security](https://img.shields.io/badge/Security-Applied%20Cryptography-black?style=for-the-badge&logo=hackaday)
 
-### Computer Systems Security - NOVA FCT
+### Course - Computer Systems Security 
 
 *Secure client–server application that allows storing, retrieving and searching **encrypted files** over a TLS connection.*
 
@@ -102,13 +102,6 @@ java ClTest CHECKINTEGRITY <ficheiro>
 
 This project was developed as part of the **Computer Systems Security** course in the **MSc in Computer Engineering** program at **NOVA School of Science and Technology**.
 
-### Learning Objectives
-- Applied cryptography in real-world scenarios
-- Secure network protocol design
-- Client-server architecture with security focus
-- Key management and secure storage
-
-## Authors
-
+With the Authors:
 - **Tomás Alexandre**  
 - **Nicolae Iachimovschi**
