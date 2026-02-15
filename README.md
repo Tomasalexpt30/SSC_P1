@@ -17,20 +17,20 @@
 
 </div>
 
-## 🚀 Features
+## Features
 
-- 🔒 **End-to-End Encryption** — File encryption using **AES-256-GCM**
-- 🛡️ **Secure Communication** — Encrypted transmission via **TLS sockets**
-- ✓ **Integrity & Authenticity** — Verification using **HMAC + AEAD**
-- 🔍 **Searchable Encryption** — Search files using secure keyword tokens
-- 📦 **Block Deduplication** — Efficient storage with **SHA-256** hashing
-- 💾 **Persistent Index** — Local client index for fast file management
-- 🔐 **Encrypted Metadata** — Server stores encrypted data only
-- 👥 **Multi-Client Support** — Multiple concurrent clients
+- **End-to-End Encryption** — File encryption using **AES-256-GCM**
+- **Secure Communication** — Encrypted transmission via **TLS sockets**
+- **Integrity & Authenticity** — Verification using **HMAC + AEAD**
+- **Searchable Encryption** — Search files using secure keyword tokens
+- **Block Deduplication** — Efficient storage with **SHA-256** hashing
+- **Persistent Index** — Local client index for fast file management
+- **Encrypted Metadata** — Server stores encrypted data only
+- **Multi-Client Support** — Multiple concurrent clients
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌──────────┐           ┌──────────────┐           ┌──────────┐
@@ -49,7 +49,7 @@
 
 ---
 
-## ⚙️ Technologies
+## Technologies
 
 | Technology | Purpose |
 |------------|---------|
@@ -62,7 +62,7 @@
 
 ---
 
-## 🔒 Security Features
+## Security Features
 
 ### Client-Side Encryption
 - All files are encrypted on the client before transmission
@@ -86,7 +86,7 @@
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 secure-storage/
@@ -116,7 +116,7 @@ This project was developed as part of the **Computer Systems Security** course i
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Tomás Alexandre**
 
