@@ -7,7 +7,7 @@
 ![AES](https://img.shields.io/badge/AES-256--GCM-red?style=for-the-badge&logo=keepassxc)
 ![Security](https://img.shields.io/badge/Security-Applied%20Cryptography-black?style=for-the-badge&logo=hackaday)
 
-### 🎓 Computer Systems Security — NOVA FCT
+### Computer Systems Security — NOVA FCT
 
 *Secure client–server application that allows storing, retrieving and searching **encrypted files** over a TLS connection.*
 
@@ -33,16 +33,11 @@
 ## Architecture
 
 ```
-┌──────────┐           ┌──────────────┐           ┌──────────┐
-│  Client  │  ──────>  │   Encrypt    │  ──────>  │   TLS    │
+┌──────────┐           ┌──────────────┐           ┌──────────┐ 
+│  Client  │  ──────>  │   Encrypt    │  ──────>  │   TLS    │ ──────> ┌──────────┐
 │          │           │  (AES-GCM)   │           │  Socket  │
-└──────────┘           └──────────────┘           └────┬─────┘
-                                                        │
-                                                        v
-                                               ┌────────────────┐
-                                               │  Server stores │
-                                               │ encrypted data │
-                                               └────────────────┘
+└──────────┘           └──────────────┘           └──────────┘
+                                               
 ```
 
 **The server cannot read file contents or keywords** — All sensitive operations happen client-side.
@@ -104,7 +99,7 @@ secure-storage/
 
 ---
 
-## 🎓 Academic Context
+## Academic Context
 
 This project was developed as part of the **Computer Systems Security** course in the **MSc in Computer Engineering** program at **NOVA School of Science and Technology**.
 
@@ -119,6 +114,7 @@ This project was developed as part of the **Computer Systems Security** course i
 ## Author
 
 **Tomás Alexandre**
+**Nicolae Iachimovschi**
 
 *MSc Computer Engineering*  
 *NOVA School of Science and Technology*
@@ -133,7 +129,7 @@ This project is part of an academic assignment at NOVA FCT.
 
 <div align="center">
 
-**🔒 Built with Security in Mind**
+** Built with Security in Mind**
 
 *Faculdade de Ciências e Tecnologia — Universidade NOVA de Lisboa*
 
