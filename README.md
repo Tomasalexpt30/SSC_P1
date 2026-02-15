@@ -81,21 +81,92 @@
 
 ---
 
-## Project Structure
+## 🚀 How to Run
 
+**Grupo:** Tomás Alexandre (73213) & Nicolae Iachimovschi (73381)
+
+**Password:** `123` (quando pedido)
+
+---
+
+### 1. Gerar Certificados TLS
+
+```bash
+keytool -genkeypair -alias server -keyalg RSA -keysize 2048 -keystore serverkeystore.jks -storepass changeit -keypass changeit -dname "CN=localhost, OU=Dev, O=Dev, L=City, S=State, C=PT" -validity 3650
+
+keytool -exportcert -alias server -keystore serverkeystore.jks -storepass changeit -rfc -file server.cer
+
+keytool -importcert -alias server -file server.cer -keystore clienttruststore.jks -storepass changeit -noprompt
 ```
-secure-storage/
-├── client/                 # Client application
-│   ├── encryption/        # Encryption modules (AES, HMAC)
-│   ├── network/           # TLS socket communication
-│   └── index/             # Local file index management
-├── server/                 # Server application
-│   ├── storage/           # Encrypted block storage
-│   ├── network/           # TLS server socket
-│   └── metadata/          # Encrypted metadata handling
-└── common/                 # Shared utilities
-    └── crypto/            # Cryptographic primitives
+
+---
+
+### 2. Compilar
+
+```bash
+javac *.java
 ```
+
+---
+
+### 3. Executar o Servidor
+
+```bash
+java BlockStorageServer
+```
+
+**⚠️ Deixar este terminal aberto!**
+
+---
+
+### 4. Executar o Cliente (Novo Terminal)
+
+**Cliente Interativo:**
+```bash
+java BlockStorageClient
+```
+
+Menu com opções 1-7:
+- 1: Upload file
+- 2: Download file  
+- 3: Search keyword
+- 4: List files
+- 5: Check integrity
+- 6: Delete file
+- 7: Exit
+
+**OU Cliente de Teste:**
+```bash
+java ClTest
+java ClTest PUT <ficheiro> <kw1,kw2,...>
+java ClTest GET <ficheiro|keyword> [destino]
+java ClTest SEARCH <keyword>
+java ClTest LIST
+java ClTest CHECKINTEGRITY <ficheiro>
+```
+
+---
+
+### 5. Testar com pizza.txt
+
+```bash
+java ClTest PUT client/clientfiles/pizza.txt receita
+java ClTest LIST
+java ClTest SEARCH receita
+java ClTest GET pizza.txt
+java ClTest GET receita
+java ClTest CHECKINTEGRITY pizza.txt
+```
+
+Para testar falha de integridade: modificar o conteúdo do block no blockstorage
+
+---
+
+### 6. Encerrar
+
+- **ClTest:** `Ctrl + C`
+- **BlockStorageClient:** Opção `7`
+- **Servidor:** `Ctrl + C`
 
 ---
 
@@ -113,7 +184,7 @@ This project was developed as part of the **Computer Systems Security** course i
 
 ## Author
 
-**Tomás Alexandre**
+**Tomás Alexandre**  
 **Nicolae Iachimovschi**
 
 *MSc Computer Engineering*  
@@ -129,7 +200,7 @@ This project is part of an academic assignment at NOVA FCT.
 
 <div align="center">
 
-** Built with Security in Mind**
+**Built with Security in Mind**
 
 *Faculdade de Ciências e Tecnologia — Universidade NOVA de Lisboa*
 
