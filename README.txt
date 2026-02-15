@@ -1,72 +1,50 @@
--+-+-+-+-+-++-+--+--+-++-++-++-++-++-++-++-++-+++-+-++-++-++-++-++-++-++-++-++-++-+-++-+++-++-+-++-++-++-++-+
+# 🔐 Secure Encrypted Block Storage Service
 
-Grupo - Tomás Alexandre 73213, Nicolae Iachimovschi 73381
+![Java](https://img.shields.io/badge/Java-17-blue)
+![TLS](https://img.shields.io/badge/TLS-1.2%2F1.3-green)
+![AES](https://img.shields.io/badge/AES-256--GCM-red)
+![Security](https://img.shields.io/badge/Security-Applied%20Cryptography-black)
 
-Olá professor, aqui tem um ficheiro README que dá as insruções de como rodar o código.
-No nosso computador nós seguimos estes passos, esperemos que funcione no seu tambem!
+### Computer Systems Security — NOVA FCT
 
-SE PEDIR PASWORD INSERIR - 123
+Secure client–server application that allows storing, retrieving and searching **encrypted files** over a TLS connection.  
+All encryption is performed on the client side — the server never sees plaintext data.
 
--+-+-+-+-+-++-+--+--+-++-++-++-++-++-++-++-++-+++-+-++-++-++-++-++-++-++-++-++-++-+-++-+++-++-+-++-++-++-++-+
+---
 
-## 1. Gerar certificados TLS (ligação segura cliente-servidor) -> começamos por gerar estes certificados que vão aparecer utonomaticamente na pasta. 
+## 🚀 Features
 
-keytool -genkeypair -alias server -keyalg RSA -keysize 2048 -keystore serverkeystore.jks -storepass changeit -keypass changeit -dname "CN=localhost, OU=Dev, O=Dev, L=City, S=State, C=PT" -validity 3650
+- Encrypted file storage using **AES-256-GCM**
+- Secure communication via **TLS sockets**
+- Integrity & authenticity verification (HMAC + AEAD)
+- **Searchable encryption** using keyword tokens
+- Encrypted metadata stored on the server
+- Block **deduplication** with SHA-256
+- Persistent local client index
+- Multi-client support
 
-keytool -exportcert -alias server -keystore serverkeystore.jks -storepass changeit -rfc -file server.cer
+---
 
-keytool -importcert -alias server -file server.cer -keystore clienttruststore.jks -storepass changeit -noprompt
+## 🏗️ Architecture
 
--+-+-+-+-+-++-+--+--+-++-++-++-++-++-++-++-++-+++-+-++-++-++-++-++-++-++-++-++-++-+-++-+++-++-+-++-++-++-++-+
+Client encrypts files → sends encrypted blocks → server stores encrypted data.
 
-## 2. Compilar os ficheiros Java 
+The server **cannot read file contents or keywords**.
 
+---
+
+## ⚙️ Technologies
+
+- Java
+- TCP / TLS sockets
+- AES-GCM encryption
+- HMAC-SHA256
+- PBKDF2 key derivation
+
+---
+
+## ▶️ How to Run
+
+Compile:
+```bash
 javac *.java
-
--+-+-+-+-+-++-+--+--+-++-++-++-++-++-++-++-++-+++-+-++-++-++-++-++-++-++-++-++-++-+-++-+++-++-+-++-++-++-++-+
-
-## 3. Executar o servidor 
-
-java BlockStorageServer
-
--+-+-+-+-+-++-+--+--+-++-++-++-++-++-++-++-++-+++-+-++-++-++-++-++-++-++-++-++-++-+-++-+++-++-+-++-++-++-++-+
-
-IMPORTANTE ----> Tem de criar um terminal separado ao do server
-
-## 4. Executar o cliente - NOTA que o client normal vem com um menu interativo que apenas precisa de escolhar as opções de 1 a 7.
-
-java BlockStorageClient
-
--+-+-+-+-+-++-+--+--+-++-++-++-++-++-++-++-++-+++-+-++-++-++-++-++-++-++-++-++-++-+-++-+++-++-+-++-++-++-++-+
-
-IMPORTANTE ----> Tem de criar um terminal separado ao do server
-
-## 5. Executar o cliente de teste - para usar este cliente precisa de usar os seguintes comandos:
-
-java ClTest
-
-java ClTest PUT <ficheiro> <kw1,kw2,...>
-java ClTest GET <ficheiro|keyword> [destino]
-java ClTest SEARCH <keyword>
-java ClTest LIST
-java ClTest CHECKINTEGRITY <ficheiro>
-
--+-+-+-+-+-++-+--+--+-++-++-++-++-++-++-++-++-+++-+-++-++-++-++-++-++-++-++-++-++-+-++-+++-++-+-++-++-++-++-+
-
-## 7. Testar com um ficheiro de exemplo --> pizza.txt
-
-NOTA: Criamos um ficheiro exemplo chamado "pizza.txt", o professor pode usar esse ficheiro ou se quiser pode criar um novo, ou utilizar uma imagem.
-
-java ClTest PUT client/clientfiles/pizza.txt receita
-java ClTest LIST
-java ClTest SEARCH receita
-java ClTest GET pizza.txt 
-java ClTest GET receita
-java ClTest CHECKINTEGRITY pizza.txt        -----> Neste caso para dar falha, mude o conteudo do block que foi colocado no blockstorage
-
--+-+-+-+-+-++-+--+--+-++-++-++-++-++-++-++-++-+++-+-++-++-++-++-++-++-++-++-++-++-+-++-+++-++-+-++-++-++-++-+
-
-## 8. Encerrar o servidor
-
-Para terminar o servidor, usa Ctrl + C. (no caso do client test), 
-ou clicar na tecla 7 que corresponde ao sair do client nomal
