@@ -35,16 +35,21 @@ The server **cannot read file contents or keywords**.
 
 ## ⚙️ Technologies
 
-- Java
-- TCP / TLS sockets
-- AES-GCM encryption
-- HMAC-SHA256
-- PBKDF2 key derivation
+- Java  
+- TCP / TLS sockets  
+- AES-GCM encryption  
+- HMAC-SHA256  
+- PBKDF2 key derivation  
 
 ---
 
-## ▶️ How to Run
+## 🎓 Academic Project
 
-Compile:
-```bash
-javac *.java
+Developed for the course **Computer Systems Security**  
+MSc Computer Engineering — NOVA FCT
+
+---
+
+## 👨‍💻 Author
+
+Tomás Alexandre
