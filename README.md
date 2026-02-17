@@ -54,6 +54,34 @@ This project demonstrates how modern cryptography can be applied to build a secu
 - Server can match tokens without knowing the actual keywords
 - Search over encrypted data without decryption
 
+## System Architecture
+
+```mermaid
+flowchart LR
+    C1["Client (Plaintext file)"] -->|"1. Encrypt file with nAES-256-GCM + PBKDF2"| C2
+
+    C2["Client (Encrypted blocks)"] -->|"2. Send blocks over TLS with PUT / STORE_BLOCK"| S
+
+    S["Block Storage Server (Zero plaintext knowledge)"] -->|"3. Deduplicate & store with SHA-256 hash index"| S
+
+    S -->|"4. Confirm stored blocks"| C3
+
+    C3["Client (Search / Retrieve)"] -->|"5. Send keyword token with SEARCH / GET"| S
+
+    S -->|"6. Return encrypted blocks"| C4
+
+    C4["Client (Decrypt locally)"]
+
+    C1:::client
+    C2:::client
+    C3:::client
+    C4:::client
+    S:::server
+
+    classDef client fill:#3b3b3b,color:#fff,stroke:#888,stroke-width:1.5px
+    classDef server fill:#1e3a5f,color:#fff,stroke:#4a90d9,stroke-width:1.5px
+```
+
 ## Technologies
 
 | Technology | Purpose |
