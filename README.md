@@ -135,4 +135,4 @@ This project was developed as part of the **Computer Systems Security** course i
 | Tomás Alexandre | 73213 |
 | Nicolae Iachimovschi | 73381 |
 
-> **Professor:** Henriqu Domingos | **Lab Class:** 1 
+> **Professor:** Henrique Domingos | **Lab Class:** 1 
